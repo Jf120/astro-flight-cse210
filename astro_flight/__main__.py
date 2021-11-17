@@ -4,8 +4,8 @@ from game import constants
 from game.constructor import Constructor
 
 # Classes
-class Welcome(arcade.Window):
-    """Main welcome window
+class Game(arcade.Window):
+    """Main Game window
     """
     def __init__(self):
         """Initialize the window
@@ -99,5 +99,5 @@ class Welcome(arcade.Window):
     
 # Main code entry point
 if __name__ == "__main__":
-    app = Welcome()
+    app = Game()
     arcade.run()

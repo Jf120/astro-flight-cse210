@@ -2,7 +2,7 @@ import arcade
 import random
 from game import constants
 
-positions = [5, 530]
+positions = [1, constants.SCREEN_WIDTH]
 
 class Asteroid(arcade.Sprite):
     def __init__(self, image_file_name, scale):
@@ -11,14 +11,14 @@ class Asteroid(arcade.Sprite):
         self.top = random.randint(10, constants.SCREEN_HEIGHT - 10)
         
         # Set its speed to a random speed heading left
-        if self.left == 5:
+        if self.left == 1:
             self.velocity = (random.randint(5, 15), 0)
         else:
             self.velocity = (random.randint(-15, -5), 0)
     
     def update(self):
         """Update the position of the sprite
-        When it moves off screen to the left, remove it
+        When it moves off screen, remove it
         """
 
         # Move the sprite
@@ -26,4 +26,7 @@ class Asteroid(arcade.Sprite):
 
         # Remove if off the screen
         if self.right < 0:
+            self.remove_from_sprite_lists()
+
+        if self.left > constants.SCREEN_WIDTH:
             self.remove_from_sprite_lists()
