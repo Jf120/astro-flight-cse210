@@ -2,6 +2,7 @@ import arcade
 import random
 from game import constants
 
+# Where on the screen will the asteroids come out from
 positions = [1, constants.SCREEN_WIDTH]
 
 class Asteroid(arcade.Sprite):
@@ -14,6 +15,8 @@ class Asteroid(arcade.Sprite):
         if self.left == 1:
             self.velocity = (random.randint(5, 15), 0)
         else:
+            
+            # Set its speed to a random speed heading right
             self.velocity = (random.randint(-15, -5), 0)
     
     def update(self):

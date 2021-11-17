@@ -9,4 +9,3 @@ class Spaceship(arcade.Sprite):
         self.center_x = constants.SCREEN_WIDTH / 2
         self.center_y = constants.SCREEN_HEIGHT / 10
 
-    
