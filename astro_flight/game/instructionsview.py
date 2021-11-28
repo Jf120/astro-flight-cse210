@@ -21,11 +21,11 @@ class InstructionsView(arcade.View):
         self.window.set_mouse_visible(True)
         
         # Variable with background image
-        self.background = arcade.load_texture("astro_flight/game/images/background.png")
+        self.background = arcade.load_texture("game/images/background.png")
         
         # Creates box with button
         box = arcade.gui.UIBoxLayout(vertical=False)
-        play_button = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('astro_flight/game/images/play.png'), texture_hovered=arcade.load_texture('astro_flight/game/images/play_hovered.png'), texture_pressed=arcade.load_texture('astro_flight/game/images/play_pressed.png'), scale=constants.BUTTON_SCALING)
+        play_button = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('game/images/play.png'), texture_hovered=arcade.load_texture('game/images/play_hovered.png'), texture_pressed=arcade.load_texture('game/images/play_pressed.png'), scale=constants.BUTTON_SCALING)
         
         # Adds on_click action to play button
         play_button.on_click = self.on_click_button_play
