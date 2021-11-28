@@ -9,7 +9,7 @@ class GameOverView(arcade.View):
         self.game_view = game_view
         
         # Variable with background image
-        self.background = arcade.load_texture("astro_flight/game/images/background.png")
+        self.background = arcade.load_texture("game/images/background.png")
         
         # Mouse visibility
         self.window.set_mouse_visible(True)

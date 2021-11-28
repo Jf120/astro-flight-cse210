@@ -13,11 +13,11 @@ class Asteroid(arcade.Sprite):
         
         # Set its speed to a random speed heading left
         if self.left == 1:
-            self.velocity = (random.randint(5, 15), 0)
+            self.velocity = (random.randint(2, 8), 0)
         else:
             
             # Set its speed to a random speed heading right
-            self.velocity = (random.randint(-15, -5), 0)
+            self.velocity = (random.randint(-8, -2), 0)
     
     def update(self):
         """Update the position of the sprite

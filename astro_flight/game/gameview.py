@@ -20,10 +20,10 @@ class GameView(arcade.View):
         self.window.set_mouse_visible(False)
         
         # Variable with background image
-        self.background = arcade.load_texture("astro_flight/game/images/background.png")
+        self.background = arcade.load_texture("game/images/background.png")
         
         # Variable with sound
-        self.explosion = arcade.load_sound("astro_flight/game/sounds/explodemini.wav")
+        self.explosion = arcade.load_sound("game/sounds/explodemini.wav")
         
         # Setup game
     def setup(self):
@@ -131,7 +131,7 @@ class GameView(arcade.View):
         # Sets up lives
         self.lives_list = arcade.SpriteList()
         for i in range(self.LIVES):
-            life = Lives("astro_flight\game\images\life.png", constants.LIVES_SCALING)
+            life = Lives("game\images\life.png", constants.LIVES_SCALING)
             life.center_x = constants.LIVES_POSITIONS[i]
             self.lives_list.append(life)
         
