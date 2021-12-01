@@ -17,14 +17,14 @@ class Constructor:
         
 
         # Set up the player
-        self.player = Spaceship("game\images\spaceship.png", constants.SCALING)
+        self.player = Spaceship(constants.PATH + "\images\spaceship.png", constants.SCALING)
         self.scene.add_sprite("Player", self.player)
 
         # Set asteroids
         self.resume()
     
     def add_enemy(self, delta_time: float):
-        enemy = Asteroid("game\images\obstacle.png", random.choice(constants.ASTEROID_SCALING))
+        enemy = Asteroid(constants.PATH + "\images\obstacle.png", random.choice(constants.ASTEROID_SCALING))
         self.scene.add_sprite("Obstacles", enemy)
         
     def pause(self):

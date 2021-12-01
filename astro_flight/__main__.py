@@ -16,8 +16,8 @@ class HomeView(arcade.View):
         
         # Adds play and instructions buttons
         box = arcade.gui.UIBoxLayout(vertical=False)
-        play_button = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('game/images/play.png'), texture_hovered=arcade.load_texture('game/images/play_hovered.png'), texture_pressed=arcade.load_texture('game/images/play_pressed.png'), scale=constants.BUTTON_SCALING)
-        instructions_button = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('game/images/instructions.png'), texture_hovered=arcade.load_texture('game/images/instructions_hovered.png'), texture_pressed=arcade.load_texture('game/images/instructions_pressed.png'), scale=constants.BUTTON_SCALING)
+        play_button = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture(constants.PATH + '/images/play.png'), texture_hovered=arcade.load_texture(constants.PATH + '/images/play_hovered.png'), texture_pressed=arcade.load_texture(constants.PATH + '/images/play_pressed.png'), scale=constants.BUTTON_SCALING)
+        instructions_button = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture(constants.PATH + '/images/instructions.png'), texture_hovered=arcade.load_texture(constants.PATH + '/images/instructions_hovered.png'), texture_pressed=arcade.load_texture(constants.PATH + '/images/instructions_pressed.png'), scale=constants.BUTTON_SCALING)
         box.add(play_button.with_space_around(bottom=20))
         box.add(instructions_button.with_space_around(bottom=20))
         play_button.on_click = self.on_click_button_play
@@ -25,7 +25,7 @@ class HomeView(arcade.View):
         self.manager.add(arcade.gui.UIAnchorWidget(anchor_x='center_x', anchor_y='center_y', child=box))
         
         # Variable with background image
-        self.background = arcade.load_texture("game/images/background.png")
+        self.background = arcade.load_texture(constants.PATH + "/images/background.png")
             
     def on_draw(self):
         
