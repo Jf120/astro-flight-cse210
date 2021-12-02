@@ -1,17 +1,19 @@
 import arcade
 import arcade.gui
 from game import constants
-from game.gameview import GameView
 
 class InstructionsView(arcade.View):
     """Instructions window
     """
-    def __init__(self):
+    def __init__(self, home_view):
         """Initialize the window
         """
         
         # Sets size of the window and title
         super().__init__()
+        
+        # sets home_view to go back
+        self.home_view = home_view
         
         # Adds manager for buttons
         self.manager = arcade.gui.UIManager()
@@ -25,13 +27,13 @@ class InstructionsView(arcade.View):
         
         # Creates box with button
         box = arcade.gui.UIBoxLayout(vertical=False)
-        play_button = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture(constants.PATH + '/images/play.png'), texture_hovered=arcade.load_texture(constants.PATH + '/images/play_hovered.png'), texture_pressed=arcade.load_texture(constants.PATH + '/images/play_pressed.png'), scale=constants.BUTTON_SCALING)
+        back_button = arcade.gui.UITextureButton(texture=arcade.load_texture(constants.PATH + '/images/back.png'), texture_hovered=arcade.load_texture(constants.PATH + '/images/back_pressed.png'), texture_pressed=arcade.load_texture(constants.PATH + '/images/back_pressed.png'), scale=constants.BUTTON_SCALING)
         
         # Adds on_click action to play button
-        play_button.on_click = self.on_click_button_play
+        back_button.on_click = self.on_click_button_back
         
         # Adds button to box
-        box.add(play_button.with_space_around(top=300))
+        box.add(back_button.with_space_around(top=300))
         
         # Adds box to manager
         self.manager.add(arcade.gui.UIAnchorWidget(anchor_x='center_x', anchor_y='center_y', child=box))
@@ -53,11 +55,9 @@ class InstructionsView(arcade.View):
         # Draws the manager (buttons)
         self.manager.draw()
         
-    def on_click_button_play(self, event):
-        """ If the user presses play button, start the game. 
+    def on_click_button_back(self, event):
+        """ If the user presses the back button, go back to the home screen
         """
         
-        # Loads and launches GameView
-        game_view = GameView()
-        game_view.setup()
-        self.window.show_view(game_view)
+        # Launches homeview
+        self.window.show_view(self.home_view)

@@ -3,7 +3,7 @@ from game import constants
 
 class Spaceship(arcade.Sprite):
     def __init__(self, filename, scale):
-        super().__init__(filename, scale)
+        super().__init__(filename, scale, hit_box_algorithm='Detailed')
         self.speed = 0
         self.max_speed = 10
         self.center_x = constants.SCREEN_WIDTH / 2

@@ -7,7 +7,7 @@ positions = [1, constants.SCREEN_WIDTH]
 
 class Asteroid(arcade.Sprite):
     def __init__(self, image_file_name, scale):
-        super().__init__(image_file_name, scale)
+        super().__init__(image_file_name, scale, hit_box_algorithm='Detailed')
         self.left = random.choice(positions)
         self.top = random.randint(10, constants.SCREEN_HEIGHT - 10)
         

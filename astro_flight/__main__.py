@@ -9,6 +9,7 @@ from game.instructionsview import InstructionsView
 class HomeView(arcade.View):
     
     def on_show(self):
+        """Called when the view is shown """
         
         # Sets Manager for GUI
         self.manager = arcade.gui.UIManager()
@@ -48,7 +49,7 @@ class HomeView(arcade.View):
     def on_click_button_instructions(self, event):
         
         # If button clicked then the launches instructions
-        instructions_view = InstructionsView()
+        instructions_view = InstructionsView(self)
         self.window.show_view(instructions_view)
 
         

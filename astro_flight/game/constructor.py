@@ -24,6 +24,7 @@ class Constructor:
         self.resume()
     
     def add_enemy(self, delta_time: float):
+        """Add an asteroid instance to the scene"""
         enemy = Asteroid(constants.PATH + "\images\obstacle.png", random.choice(constants.ASTEROID_SCALING))
         self.scene.add_sprite("Obstacles", enemy)
         
