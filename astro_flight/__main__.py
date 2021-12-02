@@ -26,6 +26,9 @@ class HomeView(arcade.View):
         
         # Variable with background image
         self.background = arcade.load_texture(constants.PATH + "/images/background.png")
+        self.background_music = arcade.load_sound(constants.PATH + "/sounds/background_music.wav")
+        # Starts music
+        arcade.play_sound(self.background_music, 0.6, 0, True)
             
     def on_draw(self):
         

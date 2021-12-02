@@ -1,5 +1,15 @@
-Sounds (c) by Michel Baradari apollo-music.de
+Explosions:
 
-Licensed under CC BY 3.0 http://creativecommons.org/licenses/by/3.0/
+    Sounds (c) by Michel Baradari apollo-music.de
 
-Hosted on opengameart.org
+    Licensed under CC BY 3.0 http://creativecommons.org/licenses/by/3.0/
+
+    Hosted on opengameart.org
+
+Background Music:
+
+    Virtutes Instrumenti by Kevin MacLeod
+
+    Link: https://incompetech.filmmusic.io/song/4590-virtutes-instrumenti
+
+    License: https://filmmusic.io/standard-license
