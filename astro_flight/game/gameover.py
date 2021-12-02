@@ -15,6 +15,7 @@ class GameOverView(arcade.View):
         self.window.set_mouse_visible(True)
     
     def on_show(self):
+        """Show the gameover view"""
         arcade.set_background_color(arcade.color.BLACK)
     
     def on_draw(self):

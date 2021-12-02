@@ -9,9 +9,12 @@ class PauseView(arcade.View):
         self.game_view = game_view
 
     def on_show(self):
+        """Called when game is paused"""
         arcade.set_background_color(arcade.color.PURPLE)
 
     def on_draw(self):
+        """Called whenever you need to draw your window
+        """
         arcade.start_render()
 
         # Draw player, for effect, on pause screen.
@@ -22,7 +25,8 @@ class PauseView(arcade.View):
 
         # draw an orange filter over him
         arcade.draw_lrtb_rectangle_filled(left=player.left, right=player.right, top=player.top, bottom=player.bottom, color=arcade.color.PURPLE + (200,))
-
+        
+        # Draw text
         arcade.draw_text("PAUSED", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2 + 50, arcade.color.BLACK, font_size=50, anchor_x="center")
 
         # Show tip to return or reset

@@ -99,20 +99,32 @@ class GameView(arcade.View):
             self.constructor.player.change_x = 0
     
     def on_update(self, delta_time):
+        """Call this to update your game at the end of each frame"""
         
         # Updates all the sprites
         self.constructor.scene.update()
 
         # Collision detection
         if self.constructor.player.collides_with_list(self.constructor.scene.get_sprite_list("Obstacles")):
-            self.LIVES -= 1
+            
+            # Removes asteroid from near the player to prevent from colliding with it again
+            for asteroid in (self.constructor.scene.get_sprite_list("Obstacles")):
+                
+                if int(asteroid.center_y) < 300:
+                    self.constructor.scene.get_sprite_list("Obstacles").remove(asteroid)
+                    
+            
             arcade.play_sound(self.explosion, 0.6)  
+            self.LIVES -= 1
             self.constructor.player.center_x = constants.SCREEN_WIDTH / 2
             self.constructor.player.center_y = constants.SCREEN_HEIGHT / 10
-        
+            
+        # what to do if player is dead
         if self.LIVES == 0:
             
+            # Pauses scheduling of asteroids
             self.constructor.pause()
+            # Opens game over window
             game_over = GameOverView(self)
             self.window.show_view(game_over)
         
@@ -135,6 +147,7 @@ class GameView(arcade.View):
             life.center_x = constants.LIVES_POSITIONS[i]
             self.lives_list.append(life)
         
+        # Draws lives
         self.lives_list.draw()
             
 
