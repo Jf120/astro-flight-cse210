@@ -386,3 +386,14 @@ FodyWeavers.xsd
 # JetBrains Rider
 .idea/
 *.sln.iml
+astro_flight/__pycache__/__main__.cpython-39.pyc
+astro_flight/game/__pycache__/__init__.cpython-39.pyc
+astro_flight/game/__pycache__/asteroids.cpython-39.pyc
+astro_flight/game/__pycache__/constants.cpython-39.pyc
+astro_flight/game/__pycache__/constructor.cpython-39.pyc
+astro_flight/game/__pycache__/gameover.cpython-39.pyc
+astro_flight/game/__pycache__/gameview.cpython-39.pyc
+astro_flight/game/__pycache__/instructionsview.cpython-39.pyc
+astro_flight/game/__pycache__/lives.cpython-39.pyc
+astro_flight/game/__pycache__/pauseview.cpython-39.pyc
+astro_flight/game/__pycache__/spaceship.cpython-39.pyc
