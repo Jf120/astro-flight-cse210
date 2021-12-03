@@ -49,6 +49,6 @@ root                    (project root folder)
 
 ## Credits for assets
 ---
-*https://socialside.itch.io
-*8-bit Platformer SFX commissioned by Mark McCorkle for OpenGameArt.org ( http://opengameart.org )
-*scofanogd ( https://opengameart.org/content/spaceship-9 )
+* https://socialside.itch.io
+* 8-bit Platformer SFX commissioned by Mark McCorkle for OpenGameArt.org ( http://opengameart.org )
+* scofanogd ( https://opengameart.org/content/spaceship-9 )
