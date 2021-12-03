@@ -17,9 +17,6 @@ class GameView(arcade.View):
         # Sets size of the window and title
         super().__init__()
         
-        # Mouse visibility
-        self.window.set_mouse_visible(False)
-        
         # Variable with background image
         self.background = arcade.load_texture(constants.PATH + "/images/background.png")
         
@@ -38,6 +35,9 @@ class GameView(arcade.View):
         
         # Variable with Score
         self.score = 0
+        
+        # Mouse visibility
+        self.window.set_mouse_visible(False)
         
         self.constructor = Constructor()
     
