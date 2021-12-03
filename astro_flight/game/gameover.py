@@ -1,6 +1,5 @@
 import arcade
 import arcade.gui
-import pickle
 from game import constants
 
 class GameOverView(arcade.View):
