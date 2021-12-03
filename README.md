@@ -46,3 +46,9 @@ root                    (project root folder)
 * Reece Mickelson - mmickelson108@gmail.com
 * Jorge Flores - jafc120@gmail.com
 * Coty Fivecoat - fiveoat@gmail.com
+
+## Credits for assets
+---
+*https://socialside.itch.io
+*8-bit Platformer SFX commissioned by Mark McCorkle for OpenGameArt.org ( http://opengameart.org )
+*scofanogd ( https://opengameart.org/content/spaceship-9 )
