@@ -28,7 +28,7 @@ class GameOverView(arcade.View):
         # Draw the background and text
         arcade.draw_texture_rectangle(constants.SCREEN_WIDTH // 2, constants.SCREEN_HEIGHT // 2, constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT, self.background)
         score_text = f"Score: {int(self.score)}"
-        arcade.draw_text(score_text, constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 160, arcade.csscolor.WHITE, font_size=40, anchor_x="center", font_name="Kenney Future")
+        arcade.draw_text(score_text, constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 160, arcade.csscolor.YELLOW, font_size=40, anchor_x="center", font_name="Kenney Future")
         arcade.draw_text("You Lost!", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 220, arcade.color.WHITE, font_size=40, anchor_x="center", font_name="Kenney Future")
         arcade.draw_text("Press 'Q' to quit", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 350, arcade.color.WHITE, font_size=20, anchor_x="center", font_name="Kenney Future")
         arcade.draw_text("Press ENTER to restart", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 500, arcade.color.WHITE, font_size=20, anchor_x="center", font_name="Kenney Future")    
