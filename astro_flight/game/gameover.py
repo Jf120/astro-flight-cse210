@@ -1,5 +1,6 @@
 import arcade
 import arcade.gui
+import pickle
 from game import constants
 
 class GameOverView(arcade.View):
@@ -7,7 +8,10 @@ class GameOverView(arcade.View):
     def __init__(self, game_view, score):
         super().__init__()
         self.game_view = game_view
+        
         self.score = score
+        
+        #pickle.dump(score_list, open("save_score.p", "wb"))
         
         # Variable with background image
         self.background = arcade.load_texture(constants.PATH + "/images/background.png")
@@ -53,3 +57,4 @@ class GameOverView(arcade.View):
         # Quits the game if Q is pressed
         elif key == arcade.key.Q:
             self.window.close()
+        
