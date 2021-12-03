@@ -31,6 +31,8 @@ class GameView(arcade.View):
     def setup(self):
         """Called when the view is loaded
         """
+        self.total_time = 0
+        
         # Sets up lives
         self.lives = constants.LIVES
         
@@ -105,6 +107,9 @@ class GameView(arcade.View):
     
     def on_update(self, delta_time):
         """Call this to update your game at the end of each frame"""
+    
+        # Adds score for time passed    
+        self.score += 0.05
         
         # Updates all the sprites
         self.constructor.scene.update()
@@ -128,7 +133,7 @@ class GameView(arcade.View):
         # Checks if player collides with trophy
         if self.constructor.player.collides_with_sprite(self.constructor.trophy):
             arcade.play_sound(self.trophy, 0.6)
-            self.score += 1
+            self.score += 5
             self.constructor.trophy.center_x = random.randint(10, constants.SCREEN_WIDTH - 10)
             self.constructor.trophy.center_y = random.randint(10, constants.SCREEN_HEIGHT - 10)
         
@@ -138,7 +143,7 @@ class GameView(arcade.View):
             # Pauses scheduling of asteroids
             self.constructor.pause()
             # Opens game over window
-            game_over = GameOverView(self)
+            game_over = GameOverView(self, self.score)
             self.window.show_view(game_over)
         
     def on_draw(self):
@@ -153,7 +158,7 @@ class GameView(arcade.View):
         # Draw all the sprites
         self.constructor.scene.draw()
         
-        score_text = f"Score: {self.score}"
+        score_text = f"Score: {int(self.score)}"
         arcade.draw_text(score_text, 430, 760, arcade.csscolor.WHITE, 18, font_name="Kenney Future")
         
         # Sets up lives
