@@ -8,12 +8,12 @@ class InstructionsView(arcade.View):
     def __init__(self, home_view):
         """Initialize the window
         """
-        
-        # Sets size of the window and title
         super().__init__()
-        
         # sets home_view to go back
         self.home_view = home_view
+        
+    def on_show(self):
+        """Show the intructions view"""
         
         # Adds manager for buttons
         self.manager = arcade.gui.UIManager()
@@ -60,4 +60,5 @@ class InstructionsView(arcade.View):
         """
         
         # Launches homeview
+        self.home_view.setup()
         self.window.show_view(self.home_view)
