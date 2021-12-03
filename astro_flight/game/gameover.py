@@ -1,12 +1,17 @@
 import arcade
 import arcade.gui
+import pickle
 from game import constants
 
 class GameOverView(arcade.View):
     
-    def __init__(self, game_view):
+    def __init__(self, game_view, score):
         super().__init__()
         self.game_view = game_view
+        
+        self.score = score
+        
+        #pickle.dump(score_list, open("save_score.p", "wb"))
         
         # Variable with background image
         self.background = arcade.load_texture(constants.PATH + "/images/background.png")
@@ -26,9 +31,11 @@ class GameOverView(arcade.View):
         
         # Draw the background and text
         arcade.draw_texture_rectangle(constants.SCREEN_WIDTH // 2, constants.SCREEN_HEIGHT // 2, constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT, self.background)
-        arcade.draw_text("You Lost!", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 200, arcade.color.WHITE, font_size=40, anchor_x="center")
-        arcade.draw_text("Press 'Q' to quit", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 350, arcade.color.WHITE, font_size=20, anchor_x="center")
-        arcade.draw_text("Press ENTER to restart", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 500, arcade.color.WHITE, font_size=20, anchor_x="center")    
+        score_text = f"Score: {int(self.score)}"
+        arcade.draw_text(score_text, constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 160, arcade.csscolor.YELLOW, font_size=40, anchor_x="center", font_name="Kenney Future")
+        arcade.draw_text("You Lost!", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 220, arcade.color.WHITE, font_size=40, anchor_x="center", font_name="Kenney Future")
+        arcade.draw_text("Press 'Q' to quit", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 350, arcade.color.WHITE, font_size=20, anchor_x="center", font_name="Kenney Future")
+        arcade.draw_text("Press ENTER to restart", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 500, arcade.color.WHITE, font_size=20, anchor_x="center", font_name="Kenney Future")    
         
     def on_key_press(self, key, _modifiers):
         """Handle user keyboard input
@@ -50,3 +57,4 @@ class GameOverView(arcade.View):
         # Quits the game if Q is pressed
         elif key == arcade.key.Q:
             self.window.close()
+        

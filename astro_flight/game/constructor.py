@@ -3,6 +3,7 @@ import random
 from game import constants
 from game.spaceship import Spaceship
 from game.asteroids import Asteroid
+from game.trophy import Trophy
 
 class Constructor:
     """Creates sprites
@@ -12,7 +13,6 @@ class Constructor:
         """Get the game ready to play
         """
         self.scene = arcade.Scene()
-        self.scene.add_sprite_list("Player")
         self.scene.add_sprite_list("Obstacles")
         
 
@@ -22,6 +22,10 @@ class Constructor:
 
         # Set asteroids
         self.resume()
+        
+        # set trophy
+        self.trophy = Trophy(constants.PATH + "\images/trophy.png", constants.TROPHY_SCALING)
+        self.scene.add_sprite("Trophy", self.trophy)
     
     def add_enemy(self, delta_time: float):
         """Add an asteroid instance to the scene"""

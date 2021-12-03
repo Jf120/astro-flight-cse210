@@ -1,5 +1,6 @@
 import arcade
 import arcade.gui
+import random
 from game import constants
 from game.constructor import Constructor
 from game.lives import Lives
@@ -16,21 +17,27 @@ class GameView(arcade.View):
         # Sets size of the window and title
         super().__init__()
         
-        # Mouse visibility
-        self.window.set_mouse_visible(False)
-        
         # Variable with background image
         self.background = arcade.load_texture(constants.PATH + "/images/background.png")
         
         # Variable with sound
-        self.explosion = arcade.load_sound(constants.PATH + "/sounds/explodemini.wav")
+        self.explosion = arcade.load_sound(constants.PATH + "/sounds/explosion.wav")
+        self.trophy = arcade.load_sound(constants.PATH + "/sounds/trophy.wav")
         
         # Setup game
     def setup(self):
         """Called when the view is loaded
         """
+        self.total_time = 0
+        
         # Sets up lives
-        self.LIVES = constants.LIVES
+        self.lives = constants.LIVES
+        
+        # Variable with Score
+        self.score = 0
+        
+        # Mouse visibility
+        self.window.set_mouse_visible(False)
         
         self.constructor = Constructor()
     
@@ -100,6 +107,9 @@ class GameView(arcade.View):
     
     def on_update(self, delta_time):
         """Call this to update your game at the end of each frame"""
+    
+        # Adds score for time passed    
+        self.score += 0.05
         
         # Updates all the sprites
         self.constructor.scene.update()
@@ -111,21 +121,29 @@ class GameView(arcade.View):
             for asteroid in (self.constructor.scene.get_sprite_list("Obstacles")):
                 
                 if int(asteroid.center_y) < 300:
-                    self.constructor.scene.get_sprite_list("Obstacles").remove(asteroid)
+                    asteroid.remove_from_sprite_lists()
                     
-            
+        
+        # Checks if player collides with asteroid
             arcade.play_sound(self.explosion, 0.6)  
-            self.LIVES -= 1
+            self.lives -= 1
             self.constructor.player.center_x = constants.SCREEN_WIDTH / 2
             self.constructor.player.center_y = constants.SCREEN_HEIGHT / 10
-            
+        
+        # Checks if player collides with trophy
+        if self.constructor.player.collides_with_sprite(self.constructor.trophy):
+            arcade.play_sound(self.trophy, 0.6)
+            self.score += 5
+            self.constructor.trophy.center_x = random.randint(10, constants.SCREEN_WIDTH - 10)
+            self.constructor.trophy.center_y = random.randint(10, constants.SCREEN_HEIGHT - 10)
+        
         # what to do if player is dead
-        if self.LIVES == 0:
+        if self.lives == 0:
             
             # Pauses scheduling of asteroids
             self.constructor.pause()
             # Opens game over window
-            game_over = GameOverView(self)
+            game_over = GameOverView(self, self.score)
             self.window.show_view(game_over)
         
     def on_draw(self):
@@ -140,9 +158,12 @@ class GameView(arcade.View):
         # Draw all the sprites
         self.constructor.scene.draw()
         
+        score_text = f"Score: {int(self.score)}"
+        arcade.draw_text(score_text, 430, 760, arcade.csscolor.WHITE, 18, font_name="Kenney Future")
+        
         # Sets up lives
         self.lives_list = arcade.SpriteList()
-        for i in range(self.LIVES):
+        for i in range(self.lives):
             life = Lives(constants.PATH + "\images\life.png", constants.LIVES_SCALING)
             life.center_x = constants.LIVES_POSITIONS[i]
             self.lives_list.append(life)
