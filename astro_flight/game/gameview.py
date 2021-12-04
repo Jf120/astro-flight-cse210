@@ -125,14 +125,14 @@ class GameView(arcade.View):
                     
         
         # Checks if player collides with asteroid
-            arcade.play_sound(self.explosion, 0.6)  
+            arcade.play_sound(self.explosion, .9)  
             self.lives -= 1
             self.constructor.player.center_x = constants.SCREEN_WIDTH / 2
             self.constructor.player.center_y = constants.SCREEN_HEIGHT / 10
         
         # Checks if player collides with trophy
         if self.constructor.player.collides_with_sprite(self.constructor.trophy):
-            arcade.play_sound(self.trophy, 0.6)
+            arcade.play_sound(self.trophy, 0.5)
             self.score += 5
             self.constructor.trophy.center_x = random.randint(10, constants.SCREEN_WIDTH - 10)
             self.constructor.trophy.center_y = random.randint(10, constants.SCREEN_HEIGHT - 10)
