@@ -51,7 +51,8 @@ class InstructionsView(arcade.View):
         arcade.draw_text("How To Play", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 200, arcade.color.WHITE, font_size=40, anchor_x="center", font_name="Kenney Future")
         arcade.draw_text("Use AWSD to move", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 350, arcade.color.WHITE, font_size=16, anchor_x="center", font_name="Kenney Future")
         arcade.draw_text("Do not collide with the asteroids", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 400, arcade.color.WHITE, font_size=16, anchor_x="center", font_name="Kenney Future")
-        
+        arcade.draw_text("Press P to pause the game", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT - 450, arcade.color.WHITE, font_size=16, anchor_x="center", font_name="Kenney Future")
+
         # Draws the manager (buttons)
         self.manager.draw()
         

@@ -6,7 +6,13 @@ from game import constants
 positions = [1, constants.SCREEN_WIDTH]
 
 class Asteroid(arcade.Sprite):
+    """Creates a new Asteroid object and adds it to the asteroids list
+    """
+    
     def __init__(self, image_file_name, scale):
+        """When called create a new Asteroid object based on parent object
+        """
+        
         super().__init__(image_file_name, scale, hit_box_algorithm='Detailed')
         self.center_x = random.choice(positions)
         self.center_y = random.randint(10, constants.SCREEN_HEIGHT - 10)

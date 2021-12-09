@@ -2,6 +2,9 @@ import arcade
 from game import constants
 
 class Spaceship(arcade.Sprite):
+    """Creates a Spaceship object
+    """
+    
     def __init__(self, filename, scale):
         super().__init__(filename, scale, hit_box_algorithm='Detailed')
         self.speed = 0

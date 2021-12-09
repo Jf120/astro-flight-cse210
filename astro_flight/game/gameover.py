@@ -3,6 +3,8 @@ import arcade.gui
 from game import constants
 
 class GameOverView(arcade.View):
+    """GameOver Window
+    """
     
     def __init__(self, game_view, score):
         super().__init__()

@@ -4,6 +4,9 @@ from game import constants
 
 
 class Trophy(arcade.Sprite):
+    """Creates a trophy object
+    """
+    
     def __init__(self, filename, scale):
         super().__init__(filename, scale, hit_box_algorithm='Detailed')
         self.center_x = random.randint(10, constants.SCREEN_WIDTH - 10)
