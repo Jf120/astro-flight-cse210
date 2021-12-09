@@ -17,21 +17,21 @@ class Constructor:
         
 
         # Set up the player
-        self.player = Spaceship(constants.PATH + "\images\spaceship.png", constants.SCALING)
+        self.player = Spaceship(constants.PATH + "/images/spaceship.png", constants.SCALING)
         self.scene.add_sprite("Player", self.player)
 
         # Set asteroids
         self.resume()
         
         # set trophy
-        self.trophy = Trophy(constants.PATH + "\images\prize.png", constants.TROPHY_SCALING)
+        self.trophy = Trophy(constants.PATH + "/images/prize.png", constants.TROPHY_SCALING)
         self.scene.add_sprite("Trophy", self.trophy)
     
     def add_enemy(self, delta_time: float):
         """Add an asteroid instance to the scene
         """
         
-        enemy = Asteroid(constants.PATH + "\images\obstacle.png", random.choice(constants.ASTEROID_SCALING))
+        enemy = Asteroid(constants.PATH + "/images/obstacle.png", random.choice(constants.ASTEROID_SCALING))
         self.scene.add_sprite("Obstacles", enemy)
         
     def pause(self):
