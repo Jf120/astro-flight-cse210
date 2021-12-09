@@ -7,13 +7,16 @@ from game.instructionsview import InstructionsView
 
 # Home View Class
 class HomeView(arcade.View):
+    """Initialize Home window
+    """
+    
     def __init__(self):
         super().__init__()
         # Variable with background image
         self.background = arcade.load_texture(constants.PATH + "/images/background_logo.png")
         
         # Loads and plays music
-        self.music = arcade.load_sound(constants.PATH + "/sounds/music.mp3", streaming = True)
+        self.music = arcade.load_sound(constants.PATH + "/sounds/music.wav", streaming = True)
         arcade.play_sound(self.music, 0.5, looping = True)\
         
         # Sets Manager for GUI
@@ -21,7 +24,8 @@ class HomeView(arcade.View):
         self.manager.enable() 
         
     def setup(self):
-        """Called when the view is shown """
+        """Called when the view is shown
+        """
         
         # Adds play and instructions buttons
         box = arcade.gui.UIBoxLayout(vertical=False)
@@ -45,6 +49,8 @@ class HomeView(arcade.View):
         self.manager.draw()
 
     def on_click_button_play(self, event):
+        """Called whenever you click the play button
+        """
         
         # If button clicked the launches game
         game_view = GameView()
@@ -52,6 +58,8 @@ class HomeView(arcade.View):
         self.window.show_view(game_view)
     
     def on_click_button_instructions(self, event):
+        """Called whenever you click the instructions button
+        """
         
         # If button clicked then the launches instructions
         instructions_view = InstructionsView(self)

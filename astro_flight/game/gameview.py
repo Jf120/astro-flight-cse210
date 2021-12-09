@@ -11,7 +11,7 @@ class GameView(arcade.View):
     """Main Game window
     """
     def __init__(self):
-        """Initialize the window
+        """Initialize Game window
         """
         
         # Sets size of the window and title
@@ -28,7 +28,6 @@ class GameView(arcade.View):
     def setup(self):
         """Called when the view is loaded
         """
-        self.total_time = 0
         
         # Sets up lives
         self.lives = constants.LIVES

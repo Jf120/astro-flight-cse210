@@ -3,18 +3,24 @@ import arcade.gui
 from game import constants
 
 class PauseView(arcade.View):
+    """Initiate the pause view
+    """
     
     def __init__(self, game_view):
         super().__init__()
+        # Loads game view
         self.game_view = game_view
 
     def on_show(self):
-        """Called when game is paused"""
+        """Called when game is paused
+        """
+        
         arcade.set_background_color(arcade.color.PURPLE)
 
     def on_draw(self):
         """Called whenever you need to draw your window
         """
+        
         arcade.start_render()
 
         # Draw player, for effect, on pause screen.
