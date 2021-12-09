@@ -163,7 +163,7 @@ class GameView(arcade.View):
         # Sets up lives
         self.lives_list = arcade.SpriteList()
         for i in range(self.lives):
-            life = Lives(constants.PATH + "\images\life.png", constants.LIVES_SCALING)
+            life = Lives(constants.PATH + "/images/life.png", constants.LIVES_SCALING)
             life.center_x = constants.LIVES_POSITIONS[i]
             self.lives_list.append(life)
         
