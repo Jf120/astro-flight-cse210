@@ -63,3 +63,6 @@ class InstructionsView(arcade.View):
         # Launches homeview
         self.home_view.setup()
         self.window.show_view(self.home_view)
+    
+    def on_hide_view(self):
+        self.manager.disable()
