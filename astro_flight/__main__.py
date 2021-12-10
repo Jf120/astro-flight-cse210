@@ -66,6 +66,10 @@ class HomeView(arcade.View):
         self.window.show_view(instructions_view)
     
     def on_hide_view(self):
+        """Called when view changes
+        """
+        
+        #Disables manager
         self.manager.disable()
 
         
