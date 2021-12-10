@@ -17,15 +17,15 @@ class HomeView(arcade.View):
         
         # Loads and plays music
         self.music = arcade.load_sound(constants.PATH + "/sounds/music.wav", streaming = True)
-        arcade.play_sound(self.music, 0.5, looping = True)\
-        
-        # Sets Manager for GUI
-        self.manager = arcade.gui.UIManager()
-        self.manager.enable() 
+        arcade.play_sound(self.music, 0.5, looping = True)
         
     def setup(self):
         """Called when the view is shown
         """
+        
+        # Sets Manager for GUI
+        self.manager = arcade.gui.UIManager()
+        self.manager.enable() 
         
         # Adds play and instructions buttons
         box = arcade.gui.UIBoxLayout(vertical=False)
@@ -64,6 +64,9 @@ class HomeView(arcade.View):
         # If button clicked then the launches instructions
         instructions_view = InstructionsView(self)
         self.window.show_view(instructions_view)
+    
+    def on_hide_view(self):
+        self.manager.disable()
 
         
 # Main code entry point
