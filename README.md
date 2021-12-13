@@ -52,3 +52,8 @@ root                    (project root folder)
 * https://socialside.itch.io
 * 8-bit Platformer SFX commissioned by Mark McCorkle for OpenGameArt.org ( http://opengameart.org )
 * scofanogd ( https://opengameart.org/content/spaceship-9 )
+* Virtutes Instrumenti by Kevin MacLeod
+
+    Link: https://incompetech.filmmusic.io/song/4590-virtutes-instrumenti
+
+    License: https://filmmusic.io/standard-license
